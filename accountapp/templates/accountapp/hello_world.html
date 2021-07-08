@@ -1,9 +1,51 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div style="height: 20rem; background: antiquewhite; border-radius: 1rem; margin: 2rem;">
 
-    <h1>Test, Test, Test</h1>
+{#    <style>#}
+{##}
+{#    .testing{#}
+{#        background-color: yellow;#}
+{#        height: 40px;#}
+{#        width: 40px;#}
+{#        margin: 2rem;#}
+{#        border-radius: .5rem;#}
+{#    }#}
+{#    </style>#}
+
+{#    <div style="margin: 2rem; overflow: scroll;">#}
+    <div style="margin: 2rem">
+
+    <h1>Method</h1>
+
+     <form action="/accounts/hello_world/"method="post">
+         {% csrf_token %}
+         <input class="btn btn-dark rounded-pill px4" type="submit">
+
+     </form>
+
+    <h3>{{ text }}</h3>
+
+{#    <div style="height: 20rem; background: antiquewhite; border-radius: 1rem; margin: 2rem; overflow: scroll;">#}
+{##}
+{#    <h1>Test, Test, Test</h1>#}
+
+{#    <div  class=testing style="display: block">block</div>#}
+{#    <div  class=testing style="display : inline">inline</div>#}
+{#    <div class="testing " style="display : inline-block">inline block</div>#}
+{#    <div  class=testing style="display : none">none</div>#}
+{#    <div class="testing">de</div>#}
+{##}
+{#    <div  class=testing style="display: block">block</div>#}
+{#    <div  class=testing style="display : inline">inline</div>#}
+{#    <div class="testing " style="display : inline-block">inline block</div>#}
+{#    <div  class=testing style="display : none">none</div>#}
+{#    <div class="testing">de</div>#}
+
+{#    <div  class=testing style="display: inline-block">block</div>#}
+{#    <div  class=testing style="display: inline-block; width: 3rem; height: 3rem">block</div>#}
+{#    <div  class=testing style="display: inline-block; width: 3em; height: 3em">block</div>#}
+{#    <div  class=testing style="display: inline-block; width: 30%; height: 30%">block</div>#}
 
     </div>
 {% endblock %}
