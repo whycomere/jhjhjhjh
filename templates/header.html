@@ -1,4 +1,4 @@
-<div style = "text-align : center">
+<div style="text-align : center">
 
 
     <div>
@@ -6,10 +6,41 @@
     </div>
 
     <div class="whycomewow_button">
-        <span>nav1</span>
+        <span>
+            <a href="{% url "accountapp:hello_world" %}">
+                Home
+            </a>
+        </span>
         <span>nav2</span>
-        <span>nav3</span>
-        <span>nav4</span>
+
+{#        로그인 되어있는사람한테만 보일수있도록#}
+        {% if not user.is_authenticated %}
+
+            <span>
+            <a href="{% url "accountapp:login" %}">
+                login
+            </a>
+        </span>
+            <span>
+            <a href="{% url "accountapp:create" %}">
+                sign up
+            </a>
+        </span>
+
+        {% else %}
+            <span>
+{#            단순라이팅을 하는게 아니라 정확히 번호를 넣어줘야한다. pk 값알받으므로 pk추가#}
+            <a href="{% url 'accountapp:detail' pk=user.pk %}">
+            My Page
+            </a>
+        </span>
+
+            <span>
+            <a href="{% url 'accountapp:logout' %}">
+            logout
+            </a>
+        </span>
+        {% endif %}
     </div>
 
 </div>

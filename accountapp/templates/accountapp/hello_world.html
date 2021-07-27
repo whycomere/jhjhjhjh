@@ -2,50 +2,73 @@
 
 {% block content %}
 
-{#    <style>#}
-{##}
-{#    .testing{#}
-{#        background-color: yellow;#}
-{#        height: 40px;#}
-{#        width: 40px;#}
-{#        margin: 2rem;#}
-{#        border-radius: .5rem;#}
-{#    }#}
-{#    </style>#}
+    {#    <style>#}
+    {##}
+    {#    .testing{#}
+    {#        background-color: yellow;#}
+    {#        height: 40px;#}
+    {#        width: 40px;#}
+    {#        margin: 2rem;#}
+    {#        border-radius: .5rem;#}
+    {#    }#}
+    {#    </style>#}
 
-{#    <div style="margin: 2rem; overflow: scroll;">#}
-    <div style="margin: 2rem">
+    {#    <div style="margin: 2rem; overflow: scroll;">#}
+    <div style="margin: 2rem; text-align: center">
 
-    <h1>Method</h1>
+        {#        <h1 style="font-family#}
 
-     <form action="/accounts/hello_world/"method="post">
-         {% csrf_token %}
-         <input class="btn btn-dark rounded-pill px4" type="submit">
+        <h1 style="font-family: 'Source Code Pro', monospace;">Method</h1>
 
-     </form>
+        <form action="/accounts/hello_world/" method="post">
+            {% csrf_token %}
+            <div calss="input-group mb-3 w-58 m-auto">
+                <input type="text" class="form-control"
+                       name="hello_world_input">
 
-    <h3>{{ text }}</h3>
+            </div>
+            <input class="btn btn-dark rounded-pill px-4" type="submit">
+            <input type="text" name="hello_world_input">
 
-{#    <div style="height: 20rem; background: antiquewhite; border-radius: 1rem; margin: 2rem; overflow: scroll;">#}
-{##}
-{#    <h1>Test, Test, Test</h1>#}
+            <button class="btn btn-dark" type="submit">
+                BUTTON
+            </button>
+        </form>
 
-{#    <div  class=testing style="display: block">block</div>#}
-{#    <div  class=testing style="display : inline">inline</div>#}
-{#    <div class="testing " style="display : inline-block">inline block</div>#}
-{#    <div  class=testing style="display : none">none</div>#}
-{#    <div class="testing">de</div>#}
-{##}
-{#    <div  class=testing style="display: block">block</div>#}
-{#    <div  class=testing style="display : inline">inline</div>#}
-{#    <div class="testing " style="display : inline-block">inline block</div>#}
-{#    <div  class=testing style="display : none">none</div>#}
-{#    <div class="testing">de</div>#}
+        {% if hello_world_list %}
 
-{#    <div  class=testing style="display: inline-block">block</div>#}
-{#    <div  class=testing style="display: inline-block; width: 3rem; height: 3rem">block</div>#}
-{#    <div  class=testing style="display: inline-block; width: 3em; height: 3em">block</div>#}
-{#    <div  class=testing style="display: inline-block; width: 30%; height: 30%">block</div>#}
+            {% for hello_world in hello_world_list %}
+                <h3>{{ hello_world.text }}</h3>
+            {% endfor %}
+
+
+
+
+            {#        {% if hello_world_output %}#}
+            {##}
+            {#        <h3>{{ hello_world_output.text }}</h3>#}
+        {% endif %}
+
+        {#    <div style="height: 20rem; background: antiquewhite; border-radius: 1rem; margin: 2rem; overflow: scroll;">#}
+        {##}
+        {#    <h1>Test, Test, Test</h1>#}
+
+        {#    <div  class=testing style="display: block">block</div>#}
+        {#    <div  class=testing style="display : inline">inline</div>#}
+        {#    <div class="testing " style="display : inline-block">inline block</div>#}
+        {#    <div  class=testing style="display : none">none</div>#}
+        {#    <div class="testing">de</div>#}
+        {##}
+        {#    <div  class=testing style="display: block">block</div>#}
+        {#    <div  class=testing style="display : inline">inline</div>#}
+        {#    <div class="testing " style="display : inline-block">inline block</div>#}
+        {#    <div  class=testing style="display : none">none</div>#}
+        {#    <div class="testing">de</div>#}
+
+        {#    <div  class=testing style="display: inline-block">block</div>#}
+        {#    <div  class=testing style="display: inline-block; width: 3rem; height: 3rem">block</div>#}
+        {#    <div  class=testing style="display: inline-block; width: 3em; height: 3em">block</div>#}
+        {#    <div  class=testing style="display: inline-block; width: 30%; height: 30%">block</div>#}
 
     </div>
 {% endblock %}
