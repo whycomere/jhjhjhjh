@@ -37,7 +37,6 @@ def hello_world(request):
     # context={'text': 'get method!'})
 
 
-
 # def hello_world(request):
 #     return render(request, 'accountapp/hello_world.html')
 
@@ -59,14 +58,22 @@ class AccountDetailView(DetailView):
 
 has_ownership = [login_required, account_ownership_required]
 
+
 @method_decorator(has_ownership, 'post')
 @method_decorator(has_ownership, 'get')
 class AccountUpdateView(UpdateView):
     model = User
     form_class = AccountCreationForm
     context_object_name = "target_user"
-    success_url = reverse_lazy("accountapp:hello_world")
+
+    # success_url = reverse_lazy("accountapp:hello_world")
+
     template_name = 'accountapp/update.html'
+
+
+    def get_success_url(self):
+        # user을 안찾아가도됨!!
+        return reverse('accountapp:detail', kwargs={'pk': self.object.user.pk})
 
     # # 함수가아니라 클래스안에 메소드임으로 데코레이터자체를 사용하지못한다..!!클래스 데코 , 변환코드
     #
@@ -115,4 +122,3 @@ class AccountDeleteView(DeleteView):
     #         return super().post(request, *args, **kwargs)
     #     else:
     #         return HttpResponseForbidden()
-

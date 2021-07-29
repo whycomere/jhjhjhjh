@@ -28,3 +28,17 @@
 .NNS_B {
     font-family: "NanumSquareB", cursive;
 }
+
+.round_button {
+    color:black;
+    /*언더라인 사라지게하는것*/
+    text-decoration: none;
+    /*그림자를 만드는 작업인데 x좌표, y좌표, */
+    box-shadow: 0 0 3px black;
+    border-radius: 10rem;
+    padding: .3rem;
+}
+/*커서올렸을때 색깔 변경*/
+.round_button:hover {
+    color: dimgrey;
+}
